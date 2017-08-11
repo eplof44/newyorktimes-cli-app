@@ -5,6 +5,7 @@ class CLI
 
   def call
     welcome
+    list_articles
     menu
     goodbye
   end
@@ -15,20 +16,19 @@ class CLI
   end
 
   def list_articles
-    @articles = Article.todays_articles
-    @articles.each_with_index do |article, i|
-       puts "#{i} - #{article.headline}"
+    @article = Scraper.todays_articles
+    @article.each_with_index do |article, i |
+      puts "#{i} - #{article.headline}"
     end
   end
 
   def menu
-    list_articles
     input = gets.strip
     case input
     when "1"
       @articles.each_with_index do |article, i|
          puts "#{i} - #{article.author} - #{article.summary}"
-       end 
+       end
     when "2"
       puts "show article summary"
     when "3"

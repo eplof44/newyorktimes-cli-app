@@ -2,15 +2,19 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
+attr_accessor :headline, :author, :timestamp, :summary, :url
+
 
 class Scraper
-
-  
 
   def self.todays_articles
     self.scrape_news
   end
 
+def self.scrape_home
+  articles = []
+  articles << scrape_news
+end
 
   def self.scrape_news
     doc = Nokogiri::HTML(open("https://www.nytimes.com/pages/dining/index.html?action=click&pgtype=Homepage&region=TopBar&module=HPMiniNav&contentCollection=Food&WT.nav=page"))
@@ -20,7 +24,7 @@ class Scraper
     article.timestamp = doc.search(".timestamp").text.strip
     article.summary = doc.search("p.summary").text.strip
     #article.url = doc.search("h2.story a").attr("href")
-    article
+    article 
   end
 
 end
