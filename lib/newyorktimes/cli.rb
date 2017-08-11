@@ -13,11 +13,11 @@ class CLI
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "WELCOME TO THE NEW YORK TIMES FOOD SECTION READER"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-  end 
+  end
 
   def list_articles
     @articles = Scraper.scrape_news
-    @articles[0..9].each_with_index do |article, i |
+    @articles[0..19].each_with_index do |article, i |
       puts " #{i+1} - #{article.headline.upcase}"
     end
   end
@@ -41,7 +41,9 @@ class CLI
         list_articles
         menu
       else
-        puts "Have a great day! Come back tomorrow for more delicious news."
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts "HAVE A GREAT DAY! COME BACK TOMORROW FOR MORE DELICIOUS NEWS!"
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       end
 
     end
