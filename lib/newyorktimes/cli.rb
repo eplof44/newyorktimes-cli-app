@@ -18,7 +18,7 @@ class CLI
   end
 
   def list_articles
-    @articles = Scraper.scrape_home
+    @articles = Scraper.scrape_news
     @articles.each_with_index do |article, i |
       puts " #{i} - #{article.headline}"
     end

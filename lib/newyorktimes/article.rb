@@ -4,14 +4,6 @@ class Article
 
   @@all = []
 
-def initialize(headline = nil, author = nil, timestamp = nil, summary = nil)
-  @headline = headline
-  @author = author
-  @timestampe = timestamp
-  @summary = summary
-
-end
-
 def self.all
     @@all
 end
