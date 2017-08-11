@@ -26,29 +26,15 @@ class CLI
 
   def menu
     input = gets.strip
-    case input
-    when "1"
-      @articles[1].each do |article |
-         puts "#{article.author} - #{article.summary}"
-       end
-    when "2"
-      puts "show article summary"
-    when "3"
-      puts "show article summary"
-    when "4"
-      puts "show article summary"
-    when "5"
-      puts "show article summary"
-    when "6"
-      puts "show article summary"
-    when "7"
-      puts "show article summary"
-    when "8"
-      puts "show article summary"
-    when "9"
-      puts "show article summary"
-    when "10"
-      puts "show article summary"
+      if input.to_i > 0
+      chosen_article = @articles[input.to_i-1]
+        puts "-----------------------------------------"
+         puts "#{chosen_article.headline}"
+         puts "-----------------------------------------"
+         puts "#{chosen_article.author}"
+         puts "#{chosen_article.timestamp}"
+         puts "#{chosen_article.summary}"
+         puts "Read the full article here: #{chosen_article.url}"
   end
 
 def goodbye
