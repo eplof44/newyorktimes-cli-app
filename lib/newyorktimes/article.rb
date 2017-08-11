@@ -8,7 +8,6 @@ class Article
   attr_accessor :headline, :author, :timestamp, :summary, :url
 
   def self.todays_articles
-    binding.pry
     self.scrape_home
   end
 
@@ -17,14 +16,14 @@ class Article
     articles << scrape_news
   end
 
-  def self.scrape_news(url)
+  def self.scrape_news
     doc = Nokogiri::HTML(open("https://www.nytimes.com/"))
     article = self.new
-    headline = doc.search("h2.story-heading").text.strip
-    author = doc.search("p.byline").text.strip
-    timestamp = doc.search(".timestamp").text.strip
-    summary = doc.search("p.summary").text.strip
-    url = doc.search("h2.story-heading a").attr("href").strip
+    article.headline = doc.search("h2.story-heading").text
+    article.author = doc.search("p.byline").text
+    article.timestamp = doc.search(".timestamp").text
+    article.summary = doc.search("p.summary").text
+    article.url = doc.search("h2.story-heading a").attr("href")
     article
   end
 

@@ -17,7 +17,8 @@ class CLI
   def list_articles
     @articles = Article.todays_articles
     @articles.each_with_index do |article, i|
-      puts "#{i} - "article.headlne"
+      puts "#{i} - #{article.headline} - #{article.author} - #{article.timestamp}"
+    end
   end
 
   def menu
