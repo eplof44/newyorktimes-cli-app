@@ -3,9 +3,9 @@ require 'open-uri'
 require 'pry'
 
 
-class Scraper 
+class Scraper
 
-  attr_accessor :headline, :author, :timestamp, :summary, :url
+  
 
   def self.todays_articles
     self.scrape_news
