@@ -4,7 +4,7 @@ require 'pry'
 
 class Scraper
 
-  attr_accessor :headline, :author, :timestamp, :summary, :url
+  attr_accessor :headline, :author, :summary, :url
 
 
   def self.scrape_news
@@ -17,7 +17,6 @@ class Scraper
       article = self.new
       article.headline = info.css("h3").text.strip
       article.author = info.css("h6.byline").text.strip
-      article.timestamp = info.css("span.timestamp").text.strip
       article.summary = info.css("p.summary").text.strip
       article.url = info.css("a").attr("href").value
       articles << article
