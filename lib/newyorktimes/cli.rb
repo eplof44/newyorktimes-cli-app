@@ -17,8 +17,7 @@ class CLI
   def list_articles
     @articles = Article.todays_articles
     @articles.each_with_index do |article, i|
-       puts "#{i} - #{article.headline} - #{article.author} - #{article.timestamp}"
-
+       puts "#{i} - #{article.headline}"
     end
   end
 
@@ -27,7 +26,9 @@ class CLI
     input = gets.strip
     case input
     when "1"
-      puts "show article summary"
+      @articles.each_with_index do |article, i|
+         puts "#{i} - #{article.author} - #{article.summary}"
+       end 
     when "2"
       puts "show article summary"
     when "3"
