@@ -1,5 +1,3 @@
-require "newyorktimes/version"
-
-module Newyorktimes
-  # Your code goes here...
-end
+require_relative "./newyorktimes/version"
+require_relative "./newyorktimes/cli"
+require_relative "./newyorktimes/article"
