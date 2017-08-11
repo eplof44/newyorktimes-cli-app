@@ -29,7 +29,8 @@ class Scraper
       #article.url = doc.search("h2.story a").attr("href")
       articles << article
     end
-      articles
+    articles
+
     end
 
 

@@ -19,8 +19,8 @@ class CLI
 
   def list_articles
     @articles = Scraper.scrape_news
-    @articles.each_with_index do |article, i |
-      puts " #{i} - #{article.headline}"
+    @articles[0..9].each_with_index do |article, i |
+      puts " #{i+1} - #{article.headline}"
     end
   end
 
@@ -28,8 +28,8 @@ class CLI
     input = gets.strip
     case input
     when "1"
-      @articles.each_with_index do |article, i|
-         puts "#{i} - #{article.author} - #{article.summary}"
+      @articles[1].each do |article |
+         puts "#{article.author} - #{article.summary}"
        end
     when "2"
       puts "show article summary"
