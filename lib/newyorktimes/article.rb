@@ -12,7 +12,8 @@ def initialize(headline = nil, author = nil, timestamp = nil, summary = nil)
 
 end
 
-
-
+def self.all
+    @@all
+end
 
 end

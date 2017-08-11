@@ -18,9 +18,9 @@ class CLI
   end
 
   def list_articles
-    @articles = Scraper.scrape_news 
-    @articles.all.each_with_index do |article, i |
-    puts " #{i+1} - #{article.headline}"
+    @articles = Scraper.scrape_home
+    @articles.each_with_index do |article, i |
+      puts " #{i} - #{article.headline}"
     end
   end
 
@@ -29,8 +29,8 @@ class CLI
     case input
     when "1"
       @articles.each_with_index do |article, i|
-        puts "#{i} - #{article.author} - #{article.summary}"
-      end
+         puts "#{i} - #{article.author} - #{article.summary}"
+       end
     when "2"
       puts "show article summary"
     when "3"
@@ -49,7 +49,7 @@ class CLI
       puts "show article summary"
     when "10"
       puts "show article summary"
-    end
+  end
 
 def goodbye
   puts "Have a great day! Come back tomorrow for more delicious news."
