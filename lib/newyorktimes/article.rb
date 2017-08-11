@@ -4,4 +4,5 @@ require 'pry'
 
 
 class Article
+  
 end 
