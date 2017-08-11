@@ -17,13 +17,13 @@ class Article
   end
 
   def self.scrape_news
-    doc = Nokogiri::HTML(open("https://www.nytimes.com/"))
+    doc = Nokogiri::HTML(open("https://www.nytimes.com/pages/dining/index.html?action=click&pgtype=Homepage&region=TopBar&module=HPMiniNav&contentCollection=Food&WT.nav=page"))
     article = self.new
-    article.headline = doc.search("h2.story-heading").text
-    article.author = doc.search("p.byline").text
+    article.headline = doc.search("h3").text
+    article.author = doc.search("h6.byline").text
     article.timestamp = doc.search(".timestamp").text
-    article.summary = doc.search("p.summary").text
-    article.url = doc.search("h2.story-heading a").attr("href")
+    article.summary = doc.search("p.summary").text.strip
+    #article.url = doc.search("h2.story a").attr("href")
     article
   end
 

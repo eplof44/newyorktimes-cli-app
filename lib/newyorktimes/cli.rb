@@ -10,14 +10,15 @@ class CLI
   end
 
   def welcome
-    puts "~ ~ WELCOME TO THE NEW YORK TIMES TOP NEWS READER ~ ~"
+    puts "~ ~ WELCOME TO THE NEW YORK TIMES FOOD SECTION TOP NEWS READER ~ ~"
     puts "Please enter the number of the article you would like to learn more about. (or type exit to quit)"
   end
 
   def list_articles
     @articles = Article.todays_articles
     @articles.each_with_index do |article, i|
-      puts "#{i} - #{article.headline} - #{article.author} - #{article.timestamp}"
+       puts "#{i} - #{article.headline} - #{article.author} - #{article.timestamp}"
+
     end
   end
 
@@ -48,7 +49,7 @@ class CLI
   end
 
 def goodbye
-  puts "Have a great day! Come back tomorrow for more news"
+  puts "Have a great day! Come back tomorrow for more delicious news."
 end
 
 end
