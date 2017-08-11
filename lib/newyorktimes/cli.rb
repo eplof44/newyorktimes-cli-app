@@ -6,11 +6,11 @@ class CLI
   def call
     welcome
     menu
-    # goodbye
+    goodbye
   end
 
   def welcome
-    puts "Welcome to the New York Times Top News Reader!"
+    puts "~ ~ WELCOME TO THE NEW YORK TIMES TOP NEWS READER ~ ~"
     puts "Please enter the number of the article you would like to learn more about. (or type exit to quit)"
   end
 
@@ -22,7 +22,7 @@ class CLI
     list_articles
     input = gets.strip
     case input
-    when "(1..10)"
+    when "1"
       puts "show article summary"
     when "2"
       puts "show article summary"
@@ -45,7 +45,7 @@ class CLI
   end
 
 def goodbye
-  puts "Have a great day!"
+  puts "Have a great day! Come back tomorrow for more news"
 end
 
 end
