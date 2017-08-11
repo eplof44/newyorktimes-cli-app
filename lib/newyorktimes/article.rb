@@ -15,8 +15,8 @@ class Article
     binding.pry
     headline = doc.search("h2.story-heading").text.strip
     author = doc.search("p.byline").text.strip
-    timestamp = doc.search("timestamp")text.strip
-    summary = doc.search("p.summary")text.strip
+    timestamp = doc.search(".timestamp").text.strip
+    summary = doc.search("p.summary").text.strip
     # url =
   end
 
