@@ -19,7 +19,7 @@ class Scraper
       article.author = info.css("h6.byline").text.strip
       article.timestamp = info.css(".timestamp").text.strip
       article.summary = info.css("p.summary").text.strip
-      article.url = info.css("h2.story a").text
+      #article.url = info.css("h2.story-header a").attr("href").value
       articles << article
     end
     articles

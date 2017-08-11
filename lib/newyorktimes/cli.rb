@@ -7,7 +7,6 @@ class CLI
     welcome
     list_articles
     menu
-    goodbye
   end
 
   def welcome
@@ -20,26 +19,31 @@ class CLI
   def list_articles
     @articles = Scraper.scrape_news
     @articles[0..9].each_with_index do |article, i |
-      puts " #{i+1} - #{article.headline}"
+      puts " #{i+1} - #{article.headline.upcase}"
     end
   end
 
   def menu
     input = gets.strip
-      if input.to_i > 0
+    if input.to_i > 0
       chosen_article = @articles[input.to_i-1]
-        puts "-----------------------------------------"
-         puts "#{chosen_article.headline}"
-         puts "-----------------------------------------"
-         puts "#{chosen_article.author}"
-         puts "#{chosen_article.timestamp}"
-         puts "#{chosen_article.summary}"
-         puts "Read the full article here: #{chosen_article.url}"
+      puts "---------------------------------------------------"
+      puts "#{chosen_article.headline.upcase}"
+      puts "--------------------------------------------------"
+      puts "#{chosen_article.author.downcase}"
+      puts "#{chosen_article.timestamp}"
+      puts "#{chosen_article.summary}"
+      puts "Read the full article here: #{chosen_article.url}"
+      puts "--------------------------------------------------"
+      puts "Would you like to see the list again? (y/n)"
+      input = gets.strip
+      if input == 'y'
+        list_articles
+        menu
+      else
+        puts "Have a great day! Come back tomorrow for more delicious news."
+      end
+
+    end
   end
-
-def goodbye
-  puts "Have a great day! Come back tomorrow for more delicious news."
-end
-
-end
 end
