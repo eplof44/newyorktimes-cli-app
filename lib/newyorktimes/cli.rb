@@ -13,8 +13,7 @@ class CLI
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "WELCOME TO THE NEW YORK TIMES FOOD SECTION READER"
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts "Please enter the number of the article you would like to learn more about. (or type exit to quit)"
-  end
+  end 
 
   def list_articles
     @articles = Scraper.scrape_news
@@ -24,6 +23,7 @@ class CLI
   end
 
   def menu
+    puts "Please enter the number of the article you would like to learn more about. (or type exit to quit)"
     input = gets.strip
     if input.to_i > 0
       chosen_article = @articles[input.to_i-1]
