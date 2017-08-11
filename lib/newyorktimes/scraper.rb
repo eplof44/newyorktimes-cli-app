@@ -2,18 +2,16 @@ require 'nokogiri'
 require 'open-uri'
 require 'pry'
 
+class Scraper
+
 attr_accessor :headline, :author, :timestamp, :summary, :url
 
 
-class Scraper
-
-  def self.todays_articles
-    self.scrape_news
-  end
 
 def self.scrape_home
   articles = []
-  articles << scrape_news
+  articles << self.scrape_news
+  articles
 end
 
   def self.scrape_news
@@ -24,7 +22,7 @@ end
     article.timestamp = doc.search(".timestamp").text.strip
     article.summary = doc.search("p.summary").text.strip
     #article.url = doc.search("h2.story a").attr("href")
-    article 
+    article
   end
 
 end

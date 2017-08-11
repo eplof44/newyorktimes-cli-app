@@ -1,4 +1,4 @@
-require_relative "../newyorktimes/article.rb"
+require_relative "../newyorktimes/scraper.rb"
 
 
 class CLI
@@ -11,14 +11,16 @@ class CLI
   end
 
   def welcome
-    puts "~ ~ WELCOME TO THE NEW YORK TIMES FOOD SECTION TOP NEWS READER ~ ~"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+    puts "WELCOME TO THE NEW YORK TIMES FOOD SECTION READER"
+    puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
     puts "Please enter the number of the article you would like to learn more about. (or type exit to quit)"
   end
 
   def list_articles
-    @article = Scraper.todays_articles
-    @article.each_with_index do |article, i |
-      puts "#{i} - #{article.headline}"
+    @articles = Scraper.scrape_home
+    @articles.each_with_index do |article, i |
+      puts " #{i} - #{article.headline}"
     end
   end
 
