@@ -1,10 +1,11 @@
-require_relative "../newyorktimes/scraper.rb"
-
+require 'pry'
 
 class CLI
 
   def call
     welcome
+    Scraper.scrape_news
+    binding.pry
     list_articles
     menu
   end
@@ -16,17 +17,16 @@ class CLI
   end
 
   def list_articles
-    @articles = Scraper.scrape_news
-    @articles[0..19].each_with_index do |article, i |
-      puts " #{i+1} - #{article.headline.upcase}"
+    Article.all[0..19].each.with_index(1) do |article, i |
+      puts " #{i} - #{article.headline.upcase}"
     end
   end
 
   def menu
     puts "Please enter the number of the article (1-20) you would like to learn more about. (or type exit to quit)"
     input = gets.strip
-    if input.to_i > 0 
-      chosen_article = @articles[input.to_i-1]
+    if input.to_i > 0 && input.to_i < Article.all.count
+      chosen_article = Article.all[input.to_i-1]
       puts "---------------------------------------------------"
       puts "#{chosen_article.headline.upcase}"
       puts "--------------------------------------------------"
@@ -44,7 +44,9 @@ class CLI
         puts "HAVE A GREAT DAY! COME BACK TOMORROW FOR MORE DELICIOUS NEWS!"
         puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
       end
-
+    else
+      puts "Invalid input. Select 1-20."
+      menu
     end
   end
 end

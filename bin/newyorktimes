@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
 
-require './lib/newyorktimes'
+require_relative '../lib/newyorktimes'
 
 CLI.new.call
