@@ -5,7 +5,6 @@ class CLI
   def call
     welcome
     Scraper.scrape_news
-    binding.pry
     list_articles
     menu
   end
